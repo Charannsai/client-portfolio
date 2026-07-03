@@ -1,26 +1,71 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --portfolio-bg: #fafaf9;
+  --portfolio-text: #18181b;
+  --portfolio-muted: #71717a;
+  --portfolio-accent: #10b981;
+  --portfolio-card: #f4f4f5;
+  --portfolio-border: #e4e4e7;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.dark {
+  --portfolio-bg: #09090b;
+  --portfolio-text: #f4f4f5;
+  --portfolio-muted: #a1a1aa;
+  --portfolio-accent: #34d399;
+  --portfolio-card: #18181b;
+  --portfolio-border: #27272a;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  --font-sans: var(--font-inter), sans-serif;
+  --font-display: var(--font-space-grotesk), sans-serif;
+  --font-mono: var(--font-space-mono), monospace;
+  --font-cursive: var(--font-caveat), cursive;
+  --font-serif: var(--font-instrument-serif), Georgia, serif;
+
+  --color-portfolio-bg: var(--portfolio-bg);
+  --color-portfolio-text: var(--portfolio-text);
+  --color-portfolio-muted: var(--portfolio-muted);
+  --color-portfolio-accent: var(--portfolio-accent);
+  --color-portfolio-card: var(--portfolio-card);
+  --color-portfolio-border: var(--portfolio-border);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+  background-color: rgb(var(--portfolio-bg));
+  color: rgb(var(--portfolio-text));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.01em;
+}
+
+/* Elegant minimal selections */
+::selection {
+  background-color: rgba(var(--portfolio-text), 0.08);
+  color: rgb(var(--portfolio-text));
+}
+
+.dark ::selection {
+  background-color: rgba(var(--portfolio-text), 0.12);
+  color: rgb(var(--portfolio-text));
+}
+
+/* Hide scrollbar for utility elements */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
