@@ -26,15 +26,15 @@ const projects = [
 
 export default function Projects() {
   return (
-    <div className="grid grid-cols-1 gap-6 w-full font-sans">
+    <div className="flex flex-col gap-6 w-full font-sans">
       {projects.map((project) => (
         <div
           key={project.name}
-          className="flex flex-col p-5 rounded-2xl border border-portfolio-border bg-portfolio-card hover:shadow-[0_4px_20px_rgba(244,114,182,0.06)] transition-all duration-300 relative overflow-hidden group"
+          className="flex flex-col border-b border-portfolio-border/40 last:border-0 pb-6 last:pb-0"
         >
           {/* Header Row */}
-          <div className="flex justify-between items-baseline gap-4 mb-2">
-            <h3 className="text-base font-semibold text-portfolio-text flex items-center gap-1.5">
+          <div className="flex justify-between items-baseline gap-4 mb-1">
+            <h3 className="text-sm font-semibold text-portfolio-text">
               {project.name}
             </h3>
             <span className="font-mono text-[10px] uppercase tracking-wider text-portfolio-muted">
@@ -43,16 +43,16 @@ export default function Projects() {
           </div>
 
           {/* Description */}
-          <p className="text-xs md:text-sm text-portfolio-muted leading-relaxed font-normal mb-4">
+          <p className="text-xs md:text-sm text-portfolio-muted leading-relaxed font-normal mb-3">
             {project.description}
           </p>
 
-          {/* Stack Pills */}
-          <div className="flex flex-wrap gap-1.5 mt-auto">
+          {/* Stack tags */}
+          <div className="flex flex-wrap gap-1.5">
             {project.stack.map((tech) => (
               <span
                 key={tech}
-                className="text-[9px] font-mono font-medium text-portfolio-accent bg-portfolio-accent/5 border border-portfolio-accent/15 px-2 py-0.5 rounded-full"
+                className="text-[9px] font-mono font-medium text-portfolio-accent bg-portfolio-accent/5 border border-portfolio-accent/15 px-2 py-0.5 rounded-sm"
               >
                 {tech}
               </span>

@@ -17,13 +17,13 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <div className="flex flex-col gap-8 w-full font-sans">
+    <div className="flex flex-col gap-6 w-full font-sans">
       {experiences.map((exp) => (
-        <div key={exp.company} className="flex flex-col gap-1.5">
+        <div key={exp.company} className="flex flex-col gap-2">
           {/* Header Line */}
           <div className="flex justify-between items-baseline gap-4 flex-wrap">
-            <h3 className="text-base text-portfolio-text font-medium">
-              {exp.company} <span className="font-serif italic text-portfolio-accent text-[17px] font-normal">/ {exp.role}</span>
+            <h3 className="text-[14px] font-semibold text-portfolio-text">
+              {exp.company} <span className="text-portfolio-accent font-medium">/ {exp.role}</span>
             </h3>
             <span className="font-mono text-[10px] uppercase tracking-wider text-portfolio-muted">
               {exp.period}
