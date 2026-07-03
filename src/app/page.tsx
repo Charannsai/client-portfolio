@@ -51,74 +51,97 @@ export default function Home() {
   }, [theme, mounted]);
 
   return (
-    <div className="min-h-screen w-full py-16 md:py-24 px-6 flex flex-col items-center justify-start bg-portfolio-bg text-portfolio-text font-sans antialiased selection:bg-portfolio-text/10 transition-colors duration-300">
+    <div className="min-h-screen w-full bg-portfolio-bg text-portfolio-text font-sans antialiased selection:bg-portfolio-text/10 transition-colors duration-300">
       
-      {/* Centered Scrollable Container */}
-      <div className="max-w-[540px] w-full flex flex-col gap-12 relative">
+      {/* Split Column Grid */}
+      <div className="max-w-[760px] mx-auto py-16 md:py-24 px-6 md:px-12 grid grid-cols-1 md:grid-cols-[220px_1fr] gap-12 md:gap-24 relative">
         
-        {/* Minimalist Top Nav Header */}
-        <header className="w-full flex items-center justify-between z-40">
-          <div className="flex flex-col gap-1">
-            <h1 className="font-display font-bold text-2xl tracking-tight text-portfolio-text">
-              ushasree martha.
-            </h1>
+        {/* Left Sticky Sidebar (Header, Toggle, Links) */}
+        <aside className="md:sticky md:top-24 h-fit flex flex-col justify-between gap-8 md:gap-16">
+          <div className="flex flex-col gap-4">
+            {/* Logo / Title */}
+            <div className="flex flex-col gap-1">
+              <h1 className="font-bold text-xl tracking-tight text-portfolio-text">
+                ushasree martha
+              </h1>
+              <p className="text-[11px] text-portfolio-muted leading-relaxed font-normal">
+                MERN Developer & Software Engineer
+              </p>
+            </div>
+
+            {/* Status Dot */}
             <div className="flex items-center gap-2 select-none">
-              <span className="relative flex h-2 w-2">
+              <span className="relative flex h-1.5 w-1.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-portfolio-accent opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-portfolio-accent"></span>
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-portfolio-accent"></span>
               </span>
-              <span className="text-[10px] md:text-xs font-mono uppercase tracking-wider text-portfolio-muted">
-                Available for software roles
+              <span className="text-[10px] font-mono uppercase tracking-wider text-portfolio-muted">
+                Available for roles
               </span>
+            </div>
+
+            {/* Theme Selector */}
+            <div className="mt-2">
+              <ThemeToggle theme={theme} setTheme={setTheme} />
             </div>
           </div>
 
-          <ThemeToggle theme={theme} setTheme={setTheme} />
-        </header>
-
-        {/* Section: About */}
-        <section className="w-full flex flex-col gap-3">
-          <h2 className="text-[10px] font-mono uppercase tracking-widest text-portfolio-accent font-semibold">
-            // About
-          </h2>
-          <Profile />
-        </section>
-
-        {/* Section: Experience */}
-        <section className="w-full flex flex-col gap-5">
-          <h2 className="text-[10px] font-mono uppercase tracking-widest text-portfolio-accent font-semibold">
-            // Experience
-          </h2>
-          <Experience />
-        </section>
-
-        {/* Section: Projects */}
-        <section className="w-full flex flex-col gap-5">
-          <h2 className="text-[10px] font-mono uppercase tracking-widest text-portfolio-accent font-semibold">
-            // Projects
-          </h2>
-          <Projects />
-        </section>
-
-        {/* Minimal Footer */}
-        <footer className="w-full border-t border-portfolio-border/30 pt-6 mt-4 select-none flex flex-col items-center gap-4">
-          <div className="flex items-center justify-center gap-6 font-mono text-[10px] uppercase tracking-widest text-portfolio-muted select-none">
-            <a href="mailto:ushasreemartha@gmail.com" className="hover:text-portfolio-text transition-colors border-b border-transparent hover:border-portfolio-text pb-0.5">
+          {/* Social and Contact Links */}
+          <nav className="flex flex-row md:flex-col gap-5 md:gap-2.5 font-mono text-[10px] uppercase tracking-wider text-portfolio-muted">
+            <a href="mailto:ushasreemartha@gmail.com" className="hover:text-portfolio-text transition-colors border-b border-transparent hover:border-portfolio-text pb-0.5 w-fit">
               Email
             </a>
-            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" className="hover:text-portfolio-text transition-colors border-b border-transparent hover:border-portfolio-text pb-0.5">
+            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" className="hover:text-portfolio-text transition-colors border-b border-transparent hover:border-portfolio-text pb-0.5 w-fit">
               GitHub
             </a>
-            <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" className="hover:text-portfolio-text transition-colors border-b border-transparent hover:border-portfolio-text pb-0.5">
+            <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" className="hover:text-portfolio-text transition-colors border-b border-transparent hover:border-portfolio-text pb-0.5 w-fit">
               LinkedIn
             </a>
-          </div>
-          <div className="flex justify-center">
-            <span className="font-cursive text-2xl tracking-wide select-none text-portfolio-text/80 pointer-events-none dark:text-portfolio-text/90">
-              ushasree
+          </nav>
+        </aside>
+
+        {/* Right Scrollable Content Pane */}
+        <main className="flex-grow flex flex-col gap-12 md:gap-16 min-w-0">
+          {/* Section: About */}
+          <section className="flex flex-col gap-3">
+            <h2 className="text-[10px] font-mono uppercase tracking-widest text-portfolio-accent font-semibold">
+              About
+            </h2>
+            <Profile />
+            <a
+              href="/Ushasree_Martha_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[10px] font-mono uppercase tracking-wider text-portfolio-accent hover:underline mt-1 block w-fit"
+            >
+              View Resume
+            </a>
+          </section>
+
+          {/* Section: Experience */}
+          <section className="flex flex-col gap-5">
+            <h2 className="text-[10px] font-mono uppercase tracking-widest text-portfolio-accent font-semibold">
+              Experience
+            </h2>
+            <Experience />
+          </section>
+
+          {/* Section: Projects */}
+          <section className="flex flex-col gap-5">
+            <h2 className="text-[10px] font-mono uppercase tracking-widest text-portfolio-accent font-semibold">
+              Projects
+            </h2>
+            <Projects />
+          </section>
+
+          {/* Footer Signature */}
+          <footer className="mt-8 pt-6 border-t border-portfolio-border/30 flex justify-between items-center text-[10px] font-mono text-portfolio-muted select-none">
+            <span>© 2026</span>
+            <span className="tracking-tight hover:text-portfolio-text transition-colors cursor-default">
+              ushasree.
             </span>
-          </div>
-        </footer>
+          </footer>
+        </main>
 
       </div>
     </div>
