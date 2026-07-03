@@ -3,21 +3,21 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --portfolio-bg: #fafaf9;
-  --portfolio-text: #18181b;
-  --portfolio-muted: #71717a;
-  --portfolio-accent: #10b981;
-  --portfolio-card: #f4f4f5;
-  --portfolio-border: #e4e4e7;
+  --portfolio-bg: #fdfbf7;        /* Warm cream background */
+  --portfolio-text: #2d2926;      /* Deep charcoal */
+  --portfolio-muted: #827b75;     /* Warm taupe */
+  --portfolio-accent: #f472b6;    /* Blush rose/pink */
+  --portfolio-card: #ffffff;      /* Pure white card */
+  --portfolio-border: #f0ebe4;    /* Soft beige border */
 }
 
 .dark {
-  --portfolio-bg: #09090b;
-  --portfolio-text: #f4f4f5;
-  --portfolio-muted: #a1a1aa;
-  --portfolio-accent: #34d399;
-  --portfolio-card: #18181b;
-  --portfolio-border: #27272a;
+  --portfolio-bg: #0f0d0c;        /* Starry charcoal black */
+  --portfolio-text: #f7f5f2;      /* Warm white */
+  --portfolio-muted: #9e948c;     /* Muted taupe */
+  --portfolio-accent: #f472b6;    /* Soft pink rose */
+  --portfolio-card: #181514;      /* Deep charcoal card */
+  --portfolio-border: #2c2522;    /* Dark warm border */
 }
 
 @theme {
